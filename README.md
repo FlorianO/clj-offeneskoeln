@@ -38,6 +38,40 @@ where `req-type` is a given map from:
 
 and req-data is a map with your values.
 
+### Valid parameter for the request-data
+
+#### get-documents
+
+* `:reference` - single or comma-separated document references 
+* `:output` - single or comma-separated output type (attachments, thumbnails, consultations, facets)
+* `:sort-order` - asc, desc date asc or date desc 
+
+#### search-documents
+
+* `:query` - A query string. Supports Lucene query syntax
+* `:filter-query` - Filter based on a document property. For example "type:Antrag". Lucene query syntax.
+  * title
+  * term
+  * type
+  * person
+  * attachment
+  * session
+  * comittee
+  * street
+* `:sort-order` - 
+* `:output` - single or comma-separated output type (attachments, thumbnails, consultations, facets) 
+* `:maximum-results` - Number of maximum returned documents
+* `:result-offset` - How many documents to skip.
+* `:date-filter` - Filter by date.
+
+#### get-locations
+
+#### get-streets
+
+#### get-session
+
+#### get-terms 
+
 ## Examples from the api documentation
 
 ### Get documents
@@ -66,14 +100,26 @@ and req-data is a map with your values.
 
 ### Get location data for a street
 
+Get all Details for "Roncalliplatz"
 ```clojure
-(k/offenes-koeln get-locations {})
+(k/offenes-koeln get-locations {:street "Roncalliplatz"})
+```
+
+Get the average location for "Marzellenstraße"
+```clojure
+(k/offenes-koeln get-locations {:street "Marzellenstraße" :output "averages"})
+```
+
+Get the nodes for "Aachener Straße"
+```clojure
+(k/offenes-koeln get-locations {:street "Aachener Straße" :output "nodes"})
 ```
 
 ### Find streets for a given location
 
+Get all streets around 50,959/6,946.
 ```clojure
-(k/offenes-koeln get-street {})
+(k/offenes-koeln get-street {:latitude "50.959" :longitude "6.946"})
 ```
 
 ### Get and set session data
