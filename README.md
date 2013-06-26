@@ -1,6 +1,6 @@
 #`clj-offeneskoeln`
 
-A clojure library for the [Offenes Köln](www.offeneskoeln.de) api.
+A clojure library for the [Offenes Köln](www.offeneskoeln.de) [api](http://offeneskoeln.de/api/).
 
 ## Installation
 
