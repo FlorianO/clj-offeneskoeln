@@ -134,6 +134,10 @@ Get all streets around 50,959/6,946.
 (k/offenes-koeln get-terms {})
 ```
 
+## Continuous Integration
+
+[![Continuous Integration status](https://secure.travis-ci.org/FlorianO/clj-offeneskoeln.png)](http://travis-ci.org/FlorianO/clj-offeneskoeln)
+
 ## License
 
 Copyright © 2013 Florian Over
